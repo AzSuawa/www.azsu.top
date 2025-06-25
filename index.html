@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(p≧w≦q)</title>
+    <style>
+        :root {
+            --primary-color: #A1BDFF;
+            --text-color: #333;
+            --light-bg: #E5EDFF;
+            --card-bg: #ffffff;
+            --border-color: #e1e8ff;
+            --hover-blue: #4285f4;
+            --success-color: #B5EAD7;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--light-bg);
+            margin: 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 30px;
+            width: 380px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .jump-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .jump-btn:hover {
+            background-color: var(--hover-blue);
+        }
+
+        .countdown {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>即将前往https://azsu.top</h1>
+        
+        <button id="jump-btn" class="jump-btn">立即前往(p≧w≦q)</button>
+        
+        <div id="countdown" class="countdown">3秒后自动跳转...</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusEl = document.getElementById('status');
+            const jumpBtn = document.getElementById('jump-btn');
+            const countdownEl = document.getElementById('countdown');
+            
+            let seconds = 3;
+            const targetUrl = 'https://azsu.top';
+            
+            const countdown = setInterval(() => {
+                seconds--;
+                countdownEl.textContent = `${seconds}秒后自动跳转...`;
+                
+                if (seconds <= 0) {
+                    clearInterval(countdown);
+                    window.location.href = targetUrl;
+                }
+            }, 1000);
+            
+            jumpBtn.addEventListener('click', function() {
+                clearInterval(countdown);
+                window.location.href = targetUrl;
+            });
+        });
+    </script>
+</body>
+</html>
